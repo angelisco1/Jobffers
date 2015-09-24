@@ -3,7 +3,23 @@
 </head>
 
 <body>
+	<div class="container">
+		<header>
+			<h1>Jobffers</h1>
+		</header>
+		<ul>
+			{{#each offers}}
+				{{> offer}}
+			{{/each}}
+		</ul>
+	</div>
 </body>
 
-<template name="hello">
+<template name="offer">
+	<li>
+		<span class="text"><strong>{{company.name}}</strong></span>
+		<button class="show">Show</button>
+		<button class="update">Update</button>
+		<button class="delete">&times;</button>
+	</li>
 </template>
