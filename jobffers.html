@@ -12,14 +12,36 @@
 				{{> offer}}
 			{{/each}}
 		</ul>
+		<button class="btn btn-primary add-new-offer" type="button" data-toggle="modal" data-target="#add-offer-modal">Add offer</button>
+
+		
+		<div class="modal fade" id="add-offer-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h4 class="modal-title" id="myModalLabel">New offer</h4>
+      				</div>
+			    	<div class="modal-body">
+			        	<form id="form-new-offer">
+			        		<input type="text" name="companyName" placeholder="Company name">
+			        		<input type="text" name="companyUrl" placeholder="Company url">
+			        		<input type="text" name="stack" placeholder="Stack">
+        					<input type="submit" class="btn btn-primary" id="save-offer-btn" value="Save">
+			        	</form>
+			    	</div>
+    			</div>
+  			</div>
+		</div>
+
 	</div>
 </body>
 
 <template name="offer">
 	<li>
 		<span class="text"><strong>{{company.name}}</strong></span>
-		<button class="show">Show</button>
-		<button class="update">Update</button>
-		<button class="delete">&times;</button>
+		<button class="btn btn-default show">Show</button>
+		<button class="btn btn-default update">Update</button>
+		<button class="btn btn-danger delete">&times;</button>
 	</li>
 </template>
