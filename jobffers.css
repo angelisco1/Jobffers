@@ -1,1 +1,37 @@
 /* CSS declarations go here */
+body {
+	font-size: 20px;
+	width: auto;
+}
+
+.table th{
+	/*list-style: none;*/
+	border-top: 0px;
+	border-bottom: #84E168 solid 2px;
+	/*padding: 15px 35px 15px 35px;*/
+	/*overflow: hidden;*/
+}
+
+.table td {
+	/*list-style: none;*/
+	border-bottom: #84E168 solid 1px;
+	/*padding: 15px 35px 15px 35px;*/
+	/*overflow: hidden;*/
+}
+
+.table .text-table {
+	padding-top: 14px;
+}
+
+.btn-offer-opt {
+	display: inline-block;
+}
+
+.text {
+	float: left;
+	margin-top: 5px;
+}
+
+.btn-cont {
+	float: right;
+}

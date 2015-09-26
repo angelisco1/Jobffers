@@ -7,14 +7,20 @@
 		<header>
 			<h1>Jobffers</h1>
 		</header>
-		<ul>
-			{{#each offers}}
-				{{> offer}}
-			{{/each}}
-		</ul>
+			<table class="table table-hover">
+				<tr>
+					<th>Company</th>
+					<th>Url</th>
+					<th>Stack</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				{{#each offers}}
+					{{> offer}}
+				{{/each}}
+			</table>
 		<button class="btn btn-primary add-new-offer" type="button" data-toggle="modal" data-target="#add-offer-modal">Add offer</button>
-
-		
 		<div class="modal fade" id="add-offer-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
     			<div class="modal-content">
@@ -38,10 +44,12 @@
 </body>
 
 <template name="offer">
-	<li>
-		<span class="text"><strong>{{company.name}}</strong></span>
-		<button class="btn btn-default show">Show</button>
-		<button class="btn btn-default update">Update</button>
-		<button class="btn btn-danger delete">&times;</button>
-	</li>
+	<tr>
+		<td class="text-table"><strong>{{company.name}}</strong></td>
+		<td class="text-table">{{company.url}}</td>
+		<td class="text-table">{{stack}}</td>
+		<td><button class="btn btn-default btn-offer-opt show">Show</button></td>
+		<td><button class="btn btn-default btn-offer-opt update">Update</button></td>
+		<td><button class="btn btn-danger btn-offer-opt delete">&times;</button></td>
+	</tr>
 </template>

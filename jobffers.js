@@ -15,9 +15,10 @@ if (Meteor.isClient) {
       var companyUrl = $(event.target).find('[name=companyUrl]').val();
       var stack = $(event.target).find('[name=stack]').val();
       Meteor.call("addOffer", companyName, companyUrl, stack);
+      $('#add-offer-modal').modal('toggle');
+      document.getElementById("form-new-offer").reset();
     },
     "click .add-new-offer": function(event){
-      document.getElementById("form-new-offer").reset();
     }
   });
 
@@ -29,6 +30,9 @@ if (Meteor.isClient) {
 
 }
 
+
+
+if (Meteor.isServer) {
 Meteor.methods({
   addOffer: function(companyName, companyUrl, stack){
     Offers.insert({
@@ -52,9 +56,6 @@ Meteor.methods({
     Offers.remove(offerId);
   }
 });
-
-
-if (Meteor.isServer) {
   Meteor.startup(function () {
     
   });
