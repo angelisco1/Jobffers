@@ -1,0 +1,38 @@
+<template name="singleOffer">
+	<table class="table table-hover">
+				<tr>
+					<th>Description</th>
+					<th>Date</th>
+					<th>Answered</th>
+					<th>Person Contacted</th>
+					<th></th>
+					<th></th>
+				</tr>
+				{{#each getStatuses}}
+					{{> status}}
+				{{/each }}
+			</table>
+		<button class="btn btn-primary add-status-offer" type="button" data-toggle="modal" data-target="#add-status-modal">Add status</button>
+		<div class="modal fade" id="add-status-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h4 class="modal-title" id="myModalLabel">New status</h4>
+      				</div>
+			    	<div class="modal-body">
+			        	<form id="form-new-status">
+			        		<input type="text" name="description" placeholder="Description">
+			        		<input type="date" name="date" placeholder="Date">
+			        		<input type="text" name="pcName" placeholder="Person contacted name">
+			        		<input type="text" name="pcEmail" placeholder="Person contacted email">
+			        		<input type="text" name="pcRol" placeholder="Person contacted rol">
+        					<input type="submit" class="btn btn-primary" id="save-status-btn" value="Save">
+			        	</form>
+			    	</div>
+    			</div>
+  			</div>
+		</div>
+
+
+</template>
