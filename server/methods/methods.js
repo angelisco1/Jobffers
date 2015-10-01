@@ -27,19 +27,25 @@ Meteor.methods({
       // FlowRouter.setParams({offerId: offerId});
       var path = FlowRouter.path(pathDef, params, queryParams);
       console.log(path);
-      FlowRouter.path(pathDef, params, queryParams);
+      FlowRouter.go(pathDef, params, queryParams);
     },
-    addStatus: function(date, description, pcName, pcEmail, pcRol){
+    addStatus: function(offerId, date, description, pcName, pcEmail, pcRol){
       console.log(date, description, pcName, pcEmail, pcRol);
-      // Offers.findOne().status.insert({
-      //   date: date, //new Date().now.toLocaleString(),
-      //   description: description,
-      //   personContacted: {
-      //     name: pcName,
-      //     email: pcEmail,
-      //     rol: pcRol
-      //   },
-      //   answered: false
-      // });
+      // Menu2.update({id:'54'},{$push:{details:{item:'calamari',price:'4.99'}}});
+      Offers.update({"_id": offerId}, {
+        $push: { 
+          status: 
+          {
+            date: date,
+            description: description,
+            personContacted: {
+              name: pcName,
+              email: pcEmail,
+              rol: pcRol
+            },
+            answered: false
+          }
+        }
+      });
     }
   });
