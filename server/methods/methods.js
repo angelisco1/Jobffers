@@ -30,8 +30,6 @@ Meteor.methods({
       FlowRouter.go(pathDef, params, queryParams);
     },
     addStatus: function(offerId, date, description, pcName, pcEmail, pcRol){
-      console.log(date, description, pcName, pcEmail, pcRol);
-      // Menu2.update({id:'54'},{$push:{details:{item:'calamari',price:'4.99'}}});
       Offers.update({"_id": offerId}, {
         $push: { 
           status: 
