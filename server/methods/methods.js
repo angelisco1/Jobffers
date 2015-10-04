@@ -14,7 +14,10 @@ Meteor.methods({
           done: false,
           date: null
         },
-        status: []
+        status: [],
+        username: Meteor.userId(),
+        owner: Meteor.user().username,
+        createdAt: new Date()
       });
     },
     deleteOffer: function(offerId){
