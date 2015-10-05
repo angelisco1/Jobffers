@@ -1,5 +1,8 @@
 Meteor.methods({
     addOffer: function(companyName, companyUrl, stack){
+      if(! Meteor.userId()){
+        throw new Meteor.Error('not authorized!!!');
+      }
       Offers.insert({
         company: {
           name: companyName,
@@ -15,21 +18,22 @@ Meteor.methods({
           date: null
         },
         status: [],
-        username: Meteor.userId(),
-        owner: Meteor.user().username,
+        owner: Meteor.userId(),
+        username: Meteor.user().username,
         createdAt: new Date()
       });
     },
     deleteOffer: function(offerId){
+      var offer = Offers.findOne(offerId);
+      if(offer.owner !== Meteor.userId()){
+        throw new Meteor.Error("not-authorized");
+      }
       Offers.remove(offerId);
     },
     showOffer: function(offerId){
       var pathDef = "/offer/:offerId";
       var params = {offerId: offerId};
       var queryParams = {};
-      // FlowRouter.setParams({offerId: offerId});
-      var path = FlowRouter.path(pathDef, params, queryParams);
-      console.log(path);
       FlowRouter.go(pathDef, params, queryParams);
     },
     addStatus: function(offerId, date, description, pcName, pcEmail, pcRol){

@@ -5,7 +5,7 @@ Template.offer.events({
     "click .show": function(event){
       // Meteor.call("showOffer", this._id);
       params = {offerId: this._id};
-		queryParams = {};
-		return FlowRouter.go("/offer/:offerId", params, queryParams);
+	  queryParams = {};
+	  return FlowRouter.go("/offer/:offerId", params, queryParams);
     }
 });

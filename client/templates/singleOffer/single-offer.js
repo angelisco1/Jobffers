@@ -1,10 +1,7 @@
 Template.singleOffer.helpers({
     getOffer: function(){
-    	console.log("....");
     	var id = FlowRouter.getParam('offerId');
-    	var of = Offers.findOne({"_id": id});
-    	console.log(of);
-    	return of;
+    	return Offers.findOne({"_id": id});
     }
 });
 

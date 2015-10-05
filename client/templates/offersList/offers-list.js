@@ -1,6 +1,8 @@
+Meteor.subscribe("offers");
+
 Template.offersList.helpers({
     getOffers: function(){
-    	return Offers.find({});
+    	return Offers.find({owner: Meteor.userId()}, {sort: {createdAt: -1}});
     }
 });
 
