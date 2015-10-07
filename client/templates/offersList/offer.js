@@ -7,5 +7,11 @@ Template.offer.events({
       params = {offerId: this._id};
 	  queryParams = {};
 	  return FlowRouter.go("/offer/:offerId", params, queryParams);
+    },
+    "click .decline": function(event){
+      var reason = prompt("Reason declined??");
+      console.log(reason);
+	  Meteor.call("declineOffer", this._id, reason);
+	  // $(this).addClass('declined')
     }
 });

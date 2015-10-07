@@ -30,6 +30,22 @@ Meteor.methods({
       }
       Offers.remove(offerId);
     },
+    declineOffer: function(offerId, reason){
+      var offer = Offers.findOne(offerId);
+      if(offer.owner !== Meteor.userId()){
+        throw new Meteor.Error("not-authorized");
+      }
+      Offers.update({
+        "_id": offerId
+      }, 
+      { $set: {
+          declined: {
+            isDeclined: true,
+            reason: reason
+          }
+        }
+      });
+    },
     showOffer: function(offerId){
       var pathDef = "/offer/:offerId";
       var params = {offerId: offerId};
