@@ -15,7 +15,5 @@ Template.offersList.events({
     Meteor.call("addOffer", companyName, companyUrl, stack);
     $('#add-offer-modal').modal('toggle');
     document.getElementById("form-new-offer").reset();
-  },
-  "click .add-new-offer": function(event){
   }
 });

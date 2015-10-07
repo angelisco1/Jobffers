@@ -35,3 +35,12 @@ body {
 .btn-cont {
 	float: right;
 }
+
+nav ul {
+	list-style: none;
+	display: -webkit-box;
+}
+
+nav ul li {
+	margin-left: 15px;
+}

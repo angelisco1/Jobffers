@@ -15,6 +15,7 @@ Template.singleOffer.events({
     	var pcEmail = $(event.target).find('[name=pcEmail]').val();
     	var pcRol = $(event.target).find('[name=pcRol]').val();
 		Meteor.call("addStatus", id, date, description, pcName, pcEmail, pcRol);
-		document.getElementById("form-new-status").reset();
+		$('#add-status-modal').modal('toggle');
+        document.getElementById("form-new-status").reset();
 	}
 });

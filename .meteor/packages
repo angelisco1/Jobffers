@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 kadira:flow-router
 bootstrap
-meteorhacks:flow-router
 meteorhacks:flow-layout
 kadira:blaze-layout
 accounts-ui

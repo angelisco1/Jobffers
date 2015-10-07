@@ -1,4 +1,9 @@
 <template name="_header">
 	<h1>Jobffers</h1>
-	{{> loginButtons}}
+	<nav>
+		<ul>
+			{{> loginButtons}}
+			<li><a href={{pathHome}}>My offers</a></li>
+		</ul>
+	</nav>
 </template>
